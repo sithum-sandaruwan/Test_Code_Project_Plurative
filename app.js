@@ -1,9 +1,10 @@
 const express = require('express');
 const db = require('./db');
-
+const { OAuth2Client } = require('google-auth-library');
 const app = express();
 const PORT = 3000;
 
+//test code
 app.get('/', async (req, res) => {
     try {
         const result = await db.query('SELECT * FROM users');
@@ -14,6 +15,7 @@ app.get('/', async (req, res) => {
     }
 });
 
+//Test Code for check the server running
 app.listen(PORT, (error) => {
     if (!error)
         console.log("Server is successfully running")
