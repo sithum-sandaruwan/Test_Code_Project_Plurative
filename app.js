@@ -9,7 +9,7 @@ const PORT = 3000;
 //test code
 app.get('/', async (req, res) => {
     try {
-        const result = await authCallback.query('SELECT * FROM users');
+        const result = await db.query('SELECT * FROM users');
         res.json(result.rows);
     } catch (err) {
         console.error(err);
