@@ -1,0 +1,4 @@
+CLIENT_ID = Your_Cient_Id
+CLIENT_SECRET = Your_Client_Secret
+SECRET_KEY = JWT_Key
+RIDIRECT_URI = Call_Back_URI
