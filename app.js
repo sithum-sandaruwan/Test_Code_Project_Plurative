@@ -6,6 +6,8 @@ const authCallback = require('./auth-callback');
 const app = express();
 const PORT = 3000;
 
+const CLIENT_ID = process.env.CLIENT_ID;
+
 //test code
 app.get('/', async (req, res) => {
     try {
@@ -16,6 +18,8 @@ app.get('/', async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 });
+
+
 
 //Test Code for check the server running
 app.listen(PORT, (error) => {
