@@ -17,5 +17,10 @@ app.get('/auth',async(req,res)=>{
 
     const googleIssure = await Issuer.discover('https://accounts.google.com');
 
-    
+    const client = new googleIssure.Client({
+        client_id:CLIENT_ID,
+        cliend_secret:CLIENT_SECRET,
+        redirect_uris:REDIRECT_URI,
+        response_types:['code']
+    })
 })
