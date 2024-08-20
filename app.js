@@ -1,12 +1,11 @@
 require('dotenv').config();
 const express = require('express');
-const db = require('./auth-callback');
+const db = require('./auth-controller/auth-callback-controller');
 const { OAuth2Client } = require('google-auth-library');
-const authCallback = require('./auth-callback');
+const authCallback = require('./auth-controller/auth-callback-controller');
 const app = express();
 const PORT = 3000;
 
-const CLIENT_ID = process.env.CLIENT_ID;
 
 //test code
 app.get('/', async (req, res) => {

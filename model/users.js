@@ -10,7 +10,6 @@ const pool = new Pool({
     database : 'test_code_project_plurative'
 });
 
-
 module.exports = {
     query : (text,params) => pool.query(text,params)
 }
