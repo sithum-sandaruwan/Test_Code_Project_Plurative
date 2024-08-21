@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const db = require('./auth-controller/auth-callback-controller');
+const db = require('./model/users');
 const { OAuth2Client } = require('google-auth-library');
 const authCallback = require('./auth-controller/auth-callback-controller');
 const app = express();
