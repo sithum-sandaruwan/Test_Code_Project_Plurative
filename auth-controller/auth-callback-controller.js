@@ -8,6 +8,7 @@ const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const REDIRECT_URI = process.env.REDIRECT_URI;
 
 
+<<<<<<< HEAD
 exports.authCallBack = async (req, res) => {
 
     const code = req.query;
@@ -25,3 +26,6 @@ exports.authCallBack = async (req, res) => {
 
 
 }
+=======
+app.get('/auth-callback',async)
+>>>>>>> d74d41a873bfeb621419099a381391c158e05684
