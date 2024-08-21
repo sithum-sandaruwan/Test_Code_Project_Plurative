@@ -24,25 +24,15 @@ exports.auth= async(req, res) => {
         response_types: ['code']
     })
 
-<<<<<<< HEAD
     const url = client.authorizationUrl(
         {
             scope: 'openid email profile',
-=======
-    const url =     client.authorizationUrl(
-        {
-            scope : 'openid email profile',
->>>>>>> d74d41a873bfeb621419099a381391c158e05684
             code_challenge: codeChallenge,
             code_challenge_method: S256
         }
     )
 
     res.redirect(url);
-<<<<<<< HEAD
 };
 
 module.exports = {auth,codeVerifier};
-=======
-})
->>>>>>> d74d41a873bfeb621419099a381391c158e05684
