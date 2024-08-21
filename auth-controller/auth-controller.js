@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { OAuth2Client } = require("google-auth-library");
+const { OAuth2Client, auth } = require("google-auth-library");
 const { generators, Issuer } = require("openid-client");
 
 const CLIENT_ID = process.env.CLIENT_ID;
