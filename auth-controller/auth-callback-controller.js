@@ -1,3 +1,3 @@
 
 
-app.get('/auth-callback')
+app.get('/auth-callback',async)

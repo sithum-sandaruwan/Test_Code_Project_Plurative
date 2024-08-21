@@ -23,4 +23,14 @@ app.get('/auth',async(req,res)=>{
         redirect_uris:REDIRECT_URI,
         response_types:['code']
     })
+
+    const url =     client.authorizationUrl(
+        {
+            scope : 'openid email profile',
+            code_challenge: codeChallenge,
+            code_challenge_method: S256
+        }
+    )
+
+    res.redirect(url);
 })
