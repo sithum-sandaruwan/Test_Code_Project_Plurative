@@ -7,5 +7,5 @@ exports.JWT = (req, res) => {
     const payload = { access_token };
     const token = JWT.sign(payload, SECRET_KEY, { expiresIn: '30m' });
 
-    res.json(JWT);
+    res.json({token});
 }
