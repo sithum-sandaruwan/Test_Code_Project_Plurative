@@ -6,20 +6,24 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.json());
-app.use(routers);
+app.use("/",routers);
 
+// app.use("/api",(req,res)=>{
 
+//     res.send("saved");
+// })
 
-//test code
-app.get('/', async (req, res) => {
-    try {
-        const result = await db.query('SELECT * FROM users');
-        res.json(result.rows);
-    } catch (err) {
-        console.error(err);
-        res.status(500).send('Internal Server Error');
-    }
-});
+// //test code
+// app.get('/', async (req, res) => {
+//     res.send("savasva");
+//     try {
+//         const result = await db.query('SELECT * FROM users');
+//         res.json(result.rows);
+//     } catch (err) {
+//         console.error(err);
+//         res.status(500).send('Internal Server Error');
+//     }
+// });
 
 
 

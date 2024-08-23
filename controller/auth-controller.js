@@ -30,7 +30,7 @@ exports.getAuth= async(req, res) => {
         {
             scope: 'openid email profile',
             code_challenge: codeChallenge,
-            code_challenge_method: S256
+            code_challenge_method: 'S256'
         }
     )
 
