@@ -1,14 +1,18 @@
 const express = require('express');
+const { getUsers } = require('../controller/user-controller');
+const { authCallBack } = require('../controller/auth-callback-controller');
+const { auth, getAuth } = require('../controller/auth-controller');
+const { getToken } = require('../controller/token-controller');
 const router = express.Router();
-const authControl = require("../controller/auth-controller");
-const userControl = require("../controller/user-controller");
-const tokenControl = require("../controller/token-controller");
-const authCallBackControl = require("../controller/auth-callback-controller");
+// const authControl = require("../controller/auth-controller.js");
+// const userControl = require("../controller/user-controller.js");
+// const tokenControl = require("../controller/token-controller.js");
+// const authCallBackControl = require("../controller/auth-callback-controller.js");
 
-router.get('/api/users', userControl.getUsers);
-router.get('/auth', authControl.auth);
-router.get('/token', tokenControl.getToken);
-router.get('/auth-callback', authCallBackControl.authCallBack);
+router.get('/api/users', getUsers);
+router.get('/auth', getAuth);
+router.get('/token', getToken);
+router.get('/auth-callback', authCallBack);
 
 module.exports = router;
 

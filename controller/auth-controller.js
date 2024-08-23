@@ -9,9 +9,11 @@ const REDIRECT_URI = process.env.REDIRECT_URI;
 
 let codeVerifier = '';
 
-exports.auth= async(req, res) => {
+exports.getAuth= async(req, res) => {
 
     codeVerifier = generators.codeVerifier();
+
+    
 
     const codeChallenge = generators.codeChallenge(codeVerifier);
 
@@ -35,4 +37,4 @@ exports.auth= async(req, res) => {
     res.redirect(url);
 };
 
-module.exports = {auth,codeVerifier};
+exports.codeVerifier;

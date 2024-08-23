@@ -23,7 +23,8 @@ exports.authCallBack = async (req, res) => {
             redirect_uris: REDIRECT_URI,
             response_types: 'code'
         })
-
+        console.log(codeVerifier);
+        
         const tokens = await client.callback(REDIRECT_URI, { code }, { code_verifier: codeVerifier });
 
         const accessToken = tokens.access_token;
