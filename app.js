@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const db = require('./model/users');
 const { OAuth2Client } = require('google-auth-library');
-const authCallback = require('./auth-controller/auth-callback-controller');
+const authCallback = require('./controller/auth-callback-controller');
 const app = express();
 const PORT = 3000;
 
