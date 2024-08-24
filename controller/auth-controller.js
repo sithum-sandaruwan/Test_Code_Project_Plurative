@@ -19,6 +19,8 @@ exports.getAuth= async(req, res) => {
 
     const googleIssure = await Issuer.discover('https://accounts.google.com');
 
+    const state = generators.state();
+
     const client = new googleIssure.Client({
         client_id: CLIENT_ID,
         cliend_secret: CLIENT_SECRET,
@@ -28,9 +30,11 @@ exports.getAuth= async(req, res) => {
 
     const url = client.authorizationUrl(
         {
+            redirect_uri:REDIRECT_URI,
             scope: 'openid email profile',
             code_challenge: codeChallenge,
-            code_challenge_method: 'S256'
+            code_challenge_method: 'S256',
+            state
         }
     )
 

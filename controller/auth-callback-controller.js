@@ -2,7 +2,7 @@ require('dotenv').config();
 const { Issuer } = require("openid-client");
 const pool = require("../model/users");
 const { codeVerifier } = require("./auth-controller");
-const auth= require("./auth-controller");
+const auth = require("./auth-controller");
 const { query } = require('express');
 
 const CLIENT_ID = process.env.CLIENT_ID;
@@ -23,9 +23,8 @@ exports.authCallBack = async (req, res) => {
             redirect_uris: REDIRECT_URI,
             response_types: 'code'
         })
-        console.log(codeVerifier);
-        
-        const tokens = await client.callback(REDIRECT_URI, { code }, { code_verifier: codeVerifier });
+
+        const tokens = await client.callback(REDIRECT_URI, { code, state }, { code_verifier: codeVerifier, redirect_uri: REDIRECT_URI });
 
         const accessToken = tokens.access_token;
 
