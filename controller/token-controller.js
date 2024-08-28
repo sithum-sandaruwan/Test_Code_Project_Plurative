@@ -5,7 +5,7 @@ const SECRET_KEY = process.env.SECRET_KEY;
 exports.getToken = (req, res) => {
     const { access_token } = req.query;
     const payload = { access_token };
-    const token = JWT.sign(payload, SECRET_KEY, { expiresIn: '30m' });
+    const token = JWT.sign(payload, SECRET_KEY, { expiresIn: '50m' });
 
     res.json({token});
 }
