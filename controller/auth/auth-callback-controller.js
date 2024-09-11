@@ -1,11 +1,11 @@
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const { Issuer, generators } = require("openid-client");
-const pool = require("../model/users");
+const pool = require("../../model/users");
 const { codeVerifier } = require("./auth-controller");
 const auth = require("./auth-controller");
 const { query } = require('express');
-const { User, AuthState, UserToken, SignInKey } = require('../../models');
+const { User, AuthState, UserToken, SignInKey } = require('../../model');
 const { generateSinginKey } = require('../../utils/signinKey');
 
 const CLIENT_ID = process.env.CLIENT_ID;

@@ -1,18 +1,19 @@
 const { Model, DataTypes } = require('sequelize');
+const jose = require('jose');
+const{SignInKey} = require('../model');
 
-module.exports = (sequelize) => {
-    class SignInKey extends Model { }
+module.generateSigninKey = async()=>{
+    const {publicKey,privateKey} = await jose.generateKeyPair('RS256');
+    const privateKeyPem = await jose.exportPKCS8(privateKey);
+    const publicKeyPem = await jose.exportPKCS8(publicKey);
 
-    SignInKey.init({
-        signing_key: DataTypes.STRING,
-        expires_at: DataTypes.DATE,
-        is_revoked: DataTypes.BOOLEAN,
-    },
-    {
-        sequelize,
-        modelName: 'SignInKey',
-
+    await SignInKey.create({
+        signing_key: privateKeyPem,
+        expires_at: new Date(Date.now() + 90*24*60*60*1000),
+        is_revoked : false,
     });
 
-    return SignInKey;
+    return{privateKeyPem,publicKeyPem};
 }
+
+    
