@@ -43,8 +43,8 @@ exports.getToken = async (req, res) => {
         }
 
         const signing_key = await SignInKey.findOne({
-            where: { is_revoked: false }, order: [['expires_at', 'DESC']];
-        })
+            where: { is_revoked: false }, order: [['expires_at', 'DESC']]
+        });
 
         const token = jwt.sign(
             { id: userToken.user_id, username: userToken.username, email: userToken.email },
