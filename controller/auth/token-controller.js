@@ -30,6 +30,8 @@ exports.getToken = async (req, res) => {
             response_types: ['code'],
         })
 
+
+        //checking the the access token validation
         if (new Date() > userToken.idp_access_token_expires_at) {
             if (userToken.idp_refresh_token && new Date() < userToken.idp_access_token_expires_at) {
                 const tokens = await client.refresh(userToken.idp_refresh_token);
