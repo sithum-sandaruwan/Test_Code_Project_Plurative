@@ -1,6 +1,7 @@
 const bodyParser = require('body-parser');
 const { query, text } = require('express');
 const {Pool} = require ('pg');
+const {Model,DataTypes} = require('sequelizer');
 
 const pool = new Pool({
     user : 'postgres',
@@ -10,6 +11,21 @@ const pool = new Pool({
     database : 'test_code_project_plurative'
 });
 
-module.exports = {
-    query : (text,params) => pool.query(text,params)
+//create the User table in the database and save the data.
+module.exports = (sequelize) => {
+
+    class User extends Model {}
+
+    User.init({
+        username: DataTypes.STRING,
+        oAuthID: DataTypes.STRING,
+    },
+    {
+        sequelize,
+        modelName : 'User',
+    })
+
+    return User;
+
+    // query : (text,params) => pool.query(text,params)
 }
